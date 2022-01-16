@@ -1,0 +1,43 @@
+{
+  "root": "packages/python",
+  "sourceRoot": "packages/python/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/packages/python",
+        "main": "packages/python/src/index.ts",
+        "tsConfig": "packages/python/tsconfig.lib.json",
+        "assets": [
+          "packages/python/*.md"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "packages/python/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/packages/python"
+      ],
+      "options": {
+        "jestConfig": "packages/python/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
