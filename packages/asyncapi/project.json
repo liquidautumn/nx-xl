@@ -1,0 +1,43 @@
+{
+  "root": "packages/asyncapi",
+  "sourceRoot": "packages/asyncapi/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/packages/asyncapi",
+        "main": "packages/asyncapi/src/index.ts",
+        "tsConfig": "packages/asyncapi/tsconfig.lib.json",
+        "assets": [
+          "packages/asyncapi/*.md"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "packages/asyncapi/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/packages/asyncapi"
+      ],
+      "options": {
+        "jestConfig": "packages/asyncapi/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

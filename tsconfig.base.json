@@ -18,6 +18,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-xl/asyncapi": [
+        "packages/asyncapi/src/index.ts"
+      ],
       "@nx-xl/python": [
         "packages/python/src/index.ts"
       ]
