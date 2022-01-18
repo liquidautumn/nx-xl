@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "executors": {
+    "build": {
+      "implementation": "./src/executors/build/executor",
+      "schema": "./src/executors/build/schema.json",
+      "description": "Build with BOATS executor"
+    },
+    "lint": {
+      "implementation": "./src/executors/lint/executor",
+      "schema": "./src/executors/lint/schema.json",
+      "description": "Spec validation executor"
+    },
+    "diff": {
+      "implementation": "./src/executors/diff/executor",
+      "schema": "./src/executors/diff/schema.json",
+      "description": "Diff executor"
+    },
+    "generate": {
+      "implementation": "./src/executors/generate/executor",
+      "schema": "./src/executors/generate/schema.json",
+      "description": "Code generation executor"
+    }
+  }
+}

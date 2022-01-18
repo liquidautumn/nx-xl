@@ -2,6 +2,8 @@
 
 ## TODO 
 
+- Setup CI with semantic release
+
 ### Language
 
 - Python
@@ -18,6 +20,6 @@
 - Next app
 - Shared infrastructure component
 
-Config
+### Config
 
 - ssm

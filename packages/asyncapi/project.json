@@ -5,34 +5,46 @@
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/packages/asyncapi",
         "main": "packages/asyncapi/src/index.ts",
         "tsConfig": "packages/asyncapi/tsconfig.lib.json",
         "assets": [
-          "packages/asyncapi/*.md"
+          "packages/asyncapi/*.md",
+          {
+            "input": "./packages/asyncapi/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./packages/asyncapi/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./packages/asyncapi",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./packages/asyncapi",
+            "glob": "executors.json",
+            "output": "."
+          }
         ]
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "packages/asyncapi/**/*.ts"
-        ]
+        "lintFilePatterns": ["packages/asyncapi/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/packages/asyncapi"
-      ],
+      "outputs": ["coverage/packages/asyncapi"],
       "options": {
         "jestConfig": "packages/asyncapi/jest.config.js",
         "passWithNoTests": true
