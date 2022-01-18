@@ -4,12 +4,14 @@
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nrwl/js:tsc",
+      "executor": "@nrwl/node:package",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/packages/python",
         "main": "packages/python/src/index.ts",
         "tsConfig": "packages/python/tsconfig.lib.json",
+        "packageJson": "packages/python/package.json",
+        "buildableProjectDepsInPackageJsonType": "dependencies",
         "assets": [
           "packages/python/*.md",
           {

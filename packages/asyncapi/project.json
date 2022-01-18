@@ -4,12 +4,14 @@
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nrwl/js:tsc",
+      "executor": "@nrwl/node:package",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/packages/asyncapi",
         "main": "packages/asyncapi/src/index.ts",
         "tsConfig": "packages/asyncapi/tsconfig.lib.json",
+        "packageJson": "packages/asyncapi/package.json",
+        "buildableProjectDepsInPackageJsonType": "dependencies",
         "assets": [
           "packages/asyncapi/*.md",
           {
